@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>VAYREN — Selected Work</title>
+
+  <meta
+    name="description"
+    content="Selected digital experiences, websites and brand systems crafted by VAYREN."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ================================
+       VAYREN — WORK PAGE ADDITIONS
+       ================================ */
+
+    .work-page-hero {
+      min-height: 78vh;
+    }
+
+    .work-intro {
+      max-width: 900px;
+    }
+
+    .work-intro p {
+      max-width: 720px;
+    }
+
+    /* STATS */
+
+    .studio-stats {
+      border-top: 1px solid rgba(242,235,225,.14);
+      border-bottom: 1px solid rgba(242,235,225,.14);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin: 30px 0 130px;
+    }
+
+    .studio-stat {
+      padding: 42px 30px;
+      border-right: 1px solid rgba(242,235,225,.12);
+    }
+
+    .studio-stat:last-child {
+      border-right: none;
+    }
+
+    .studio-stat-number {
+      font-size: clamp(42px, 5vw, 72px);
+      line-height: .95;
+      color: var(--cream);
+      letter-spacing: -.06em;
+      margin-bottom: 18px;
+      font-weight: 700;
+    }
+
+    .studio-stat-number span {
+      color: var(--champagne);
+    }
+
+    .studio-stat-label {
+      font-family: "DM Mono", monospace;
+      font-size: 10px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* CATEGORY BAR */
+
+    .work-categories {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 0 0 55px;
+    }
+
+    .work-category {
+      padding: 11px 18px;
+      border: 1px solid rgba(242,235,225,.15);
+      color: var(--cream-soft);
+      font-family: "DM Mono", monospace;
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      transition: .3s ease;
+    }
+
+    .work-category:first-child,
+    .work-category:hover {
+      background: var(--champagne);
+      color: var(--espresso);
+      border-color: var(--champagne);
+    }
+
+    /* FEATURED PROJECT */
+
+    .featured-projects {
+      display: grid;
+      gap: 90px;
+    }
+
+    .featured-project {
+      display: grid;
+      grid-template-columns: 1.35fr .65fr;
+      gap: 55px;
+      align-items: end;
+    }
+
+    .featured-project.reverse {
+      grid-template-columns: .65fr 1.35fr;
+    }
+
+    .featured-project.reverse .project-visual {
+      order: 2;
+    }
+
+    .featured-project.reverse .project-details {
+      order: 1;
+    }
+
+    .project-visual {
+      min-height: 480px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(242,235,225,.12);
+      background:
+        radial-gradient(circle at 30% 20%, rgba(201,168,117,.24), transparent 35%),
+        linear-gradient(135deg, #3a281d, #1c1410 70%);
+    }
+
+    .project-visual::before {
+      content: "";
+      position: absolute;
+      inset: 35px;
+      border: 1px solid rgba(224,201,155,.18);
+    }
+
+    .project-visual::after {
+      content: "";
+      position: absolute;
+      width: 230px;
+      height: 230px;
+      border-radius: 50%;
+      background: rgba(201,168,117,.08);
+      filter: blur(4px);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .project-number {
+      position: absolute;
+      top: 28px;
+      left: 30px;
+      z-index: 2;
+      font-family: "DM Mono", monospace;
+      font-size: 10px;
+      color: var(--cream-soft);
+      letter-spacing: .12em;
+    }
+
+    .project-word {
+      position: absolute;
+      z-index: 2;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-size: clamp(48px, 7vw, 105px);
+      font-weight: 800;
+      letter-spacing: -.07em;
+      color: var(--cream);
+      white-space: nowrap;
+    }
+
+    .project-details {
+      padding-bottom: 12px;
+    }
+
+    .project-eyebrow {
+      font-family: "DM Mono", monospace;
+      color: var(--champagne);
+      font-size: 10px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .project-details h2 {
+      font-size: clamp(38px, 5vw, 68px);
+      line-height: .95;
+      letter-spacing: -.06em;
+      margin: 0 0 22px;
+      color: var(--cream);
+    }
+
+    .project-details p {
+      color: var(--cream-soft);
+      line-height: 1.8;
+      font-size: 14px;
+      margin-bottom: 28px;
+    }
+
+    .project-meta {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      padding-top: 22px;
+      border-top: 1px solid rgba(242,235,225,.12);
+    }
+
+    .project-meta span {
+      font-family: "DM Mono", monospace;
+      font-size: 9px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* EXPERIENCE */
+
+    .experience-section {
+      margin-top: 150px;
+      padding: 100px 0;
+      border-top: 1px solid rgba(242,235,225,.12);
+      border-bottom: 1px solid rgba(242,235,225,.12);
+    }
+
+    .experience-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .experience-title {
+      font-size: clamp(42px, 6vw, 82px);
+      line-height: .95;
+      letter-spacing: -.065em;
+      margin: 0;
+      color: var(--cream);
+    }
+
+    .experience-title em {
+      color: var(--champagne);
+      font-style: normal;
+    }
+
+    .experience-copy {
+      color: var(--cream-soft);
+      line-height: 1.9;
+      font-size: 15px;
+      max-width: 550px;
+    }
+
+    .experience-list {
+      margin-top: 45px;
+      border-top: 1px solid rgba(242,235,225,.12);
+    }
+
+    .experience-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      padding: 22px 0;
+      border-bottom: 1px solid rgba(242,235,225,.12);
+      font-family: "DM Mono", monospace;
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .experience-row span:last-child {
+      color: var(--champagne);
+    }
+
+    /* FEEDBACK */
+
+    .feedback-section {
+      padding-top: 150px;
+    }
+
+    .feedback-heading {
+      max-width: 800px;
+      margin-bottom: 65px;
+    }
+
+    .feedback-heading h2 {
+      font-size: clamp(44px, 6vw, 86px);
+      line-height: .92;
+      letter-spacing: -.07em;
+      margin: 0;
+      color: var(--cream);
+    }
+
+    .feedback-heading h2 span {
+      color: var(--champagne);
+    }
+
+    .feedback-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .feedback-card {
+      min-height: 300px;
+      padding: 32px;
+      border: 1px solid rgba(242,235,225,.12);
+      background: rgba(54,37,27,.32);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: .35s ease;
+    }
+
+    .feedback-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(201,168,117,.45);
+      background: rgba(54,37,27,.55);
+    }
+
+    .feedback-mark {
+      font-size: 45px;
+      color: var(--champagne);
+      line-height: 1;
+    }
+
+    .feedback-card p {
+      color: var(--cream-soft);
+      font-size: 14px;
+      line-height: 1.8;
+      margin: 20px 0 35px;
+    }
+
+    .feedback-person {
+      padding-top: 18px;
+      border-top: 1px solid rgba(242,235,225,.12);
+    }
+
+    .feedback-name {
+      color: var(--cream);
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .feedback-role {
+      color: var(--muted);
+      font-family: "DM Mono", monospace;
+      font-size: 9px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    /* RESULTS */
+
+    .results-section {
+      margin-top: 150px;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 60px;
+    }
+
+    .result-card {
+      padding: 45px;
+      min-height: 230px;
+      border: 1px solid rgba(242,235,225,.12);
+      background: linear-gradient(
+        135deg,
+        rgba(54,37,27,.55),
+        rgba(23,17,14,.5)
+      );
+    }
+
+    .result-card-number {
+      font-size: clamp(44px, 5vw, 70px);
+      color: var(--champagne);
+      font-weight: 700;
+      letter-spacing: -.06em;
+      margin-bottom: 15px;
+    }
+
+    .result-card h3 {
+      color: var(--cream);
+      margin: 0 0 12px;
+      font-size: 19px;
+    }
+
+    .result-card p {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 13px;
+      max-width: 470px;
+    }
+
+    /* NOTE */
+
+    .studio-note {
+      margin-top: 40px;
+      padding: 18px 20px;
+      border-left: 1px solid var(--champagne);
+      color: var(--muted);
+      font-family: "DM Mono", monospace;
+      font-size: 9px;
+      letter-spacing: .08em;
+      line-height: 1.8;
+      text-transform: uppercase;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 900px) {
+      .studio-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .studio-stat:nth-child(2) {
+        border-right: none;
+      }
+
+      .featured-project,
+      .featured-project.reverse {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .featured-project.reverse .project-visual,
+      .featured-project.reverse .project-details {
+        order: initial;
+      }
+
+      .experience-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .feedback-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .results-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .studio-stats {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .studio-stat {
+        padding: 28px 18px;
+      }
+
+      .studio-stat-number {
+        font-size: 38px;
+      }
+
+      .project-visual {
+        min-height: 330px;
+      }
+
+      .project-visual::before {
+        inset: 20px;
+      }
+
+      .project-word {
+        font-size: 48px;
+      }
+
+      .experience-section,
+      .feedback-section {
+        padding-top: 90px;
+      }
+
+      .feedback-card,
+      .result-card {
+        padding: 28px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .studio-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .studio-stat {
+        border-right: none;
+        border-bottom: 1px solid rgba(242,235,225,.12);
+      }
+
+      .studio-stat:last-child {
+        border-bottom: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================================
+       NAVIGATION
+       ================================ -->
+
+  <header class="navbar">
+    <a href="index.html" class="logo">VAYREN</a>
+
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="work.html" class="active">Work</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <button class="menu-toggle" aria-label="Open menu">
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+
+  <!-- ================================
+       MOBILE MENU
+       ================================ -->
+
+  <div class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="work.html">Work</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+
+  <main>
+
+    <!-- ================================
+         HERO
+         ================================ -->
+
+    <section class="hero work-page-hero">
+
+      <div class="hero-index">
+        <span>02</span>
+        <span>/</span>
+        <span>05</span>
+      </div>
+
+      <div class="hero-content">
+
+        <div class="eyebrow">
+          SELECTED WORK
+        </div>
+
+        <h1>
+          Built to be
+          <span>remembered.</span>
+        </h1>
+
+        <p>
+          A collection of digital experiences, identities and interfaces
+          designed with intention — where strategy meets visual craft.
+        </p>
+
+        <a href="#selected-work" class="button">
+          Explore projects
+        </a>
+
+      </div>
+
+      <div class="hero-bottom">
+        <span>VAYREN / WORK</span>
+        <span>SCROLL TO EXPLORE ↓</span>
+      </div>
+
+    </section>
+
+
+    <!-- ================================
+         INTRO
+         ================================ -->
+
+    <section class="section">
+
+      <div class="section-label">
+        <span>01</span>
+        <span>THE STUDIO IN NUMBERS</span>
+      </div>
+
+      <div class="work-intro">
+
+        <h2 class="section-title">
+          More than websites.
+          <span>Digital presence.</span>
+        </h2>
+
+        <p>
+          Every VAYREN project is approached as a complete experience —
+          from the first visual direction to the final interaction.
+          The goal isn't simply to make something beautiful.
+          It's to make something that stays with people.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================================
+         STATS
+         ================================ -->
+
+    <section class="section">
+
+      <div class="studio-stats">
+
+        <div class="studio-stat">
+          <div class="studio-stat-number">
+            25<span>+</span>
+          </div>
+          <div class="studio-stat-label">
+            Digital Projects
+          </div>
+        </div>
+
+        <div class="studio-stat">
+          <div class="studio-stat-number">
+            18<span>+</span>
+          </div>
+          <div class="studio-stat-label">
+            Websites Crafted
+          </div>
+        </div>
+
+        <div class="studio-stat">
+          <div class="studio-stat-number">
+            12<span>+</span>
+          </div>
+          <div class="studio-stat-label">
+            Brand Experiences
+          </div>
+        </div>
+
+        <div class="studio-stat">
+          <div class="studio-stat-number">
+            4<span>.9</span>
+          </div>
+          <div class="studio-stat-label">
+            Studio Experience
+          </div>
+        </div>
+
+      </div>
+
+      <div class="studio-note">
+        Selected portfolio metrics shown as studio/demo presentation content.
+        Replace with verified VAYREN numbers as the studio grows.
+      </div>
+
+    </section>
+
+
+    <!-- ================================
+         SELECTED WORK
+         ================================ -->
+
+    <section class="section" id="selected-work">
+
+      <div class="section-label">
+        <span>02</span>
+        <span>SELECTED PROJECTS</span>
+      </div>
+
+      <div class="work-categories">
+        <div class="work-category">All Work</div>
+        <div class="work-category">Websites</div>
+        <div class="work-category">Branding</div>
+        <div class="work-category">Digital</div>
+        <div class="work-category">E-Commerce</div>
+      </div>
+
+
+      <div class="featured-projects">
+
+        <!-- PROJECT 01 -->
+
+        <article class="featured-project">
+
+          <div class="project-visual">
+
+            <div class="project-number">
+              PROJECT / 01
+            </div>
+
+            <div class="project-word">
+              ATELIER
+            </div>
+
+          </div>
+
+          <div class="project-details">
+
+            <div class="project-eyebrow">
+              Luxury Architecture
+            </div>
+
+            <h2>
+              Atelier
+            </h2>
+
+            <p>
+              A refined digital identity for an architecture-focused
+              studio. Editorial typography, immersive spacing and
+              restrained interactions create a sophisticated online
+              presence.
+            </p>
+
+            <div class="project-meta">
+              <span>Web Design</span>
+              <span>Development</span>
+              <span>Art Direction</span>
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- PROJECT 02 -->
+
+        <article class="featured-project reverse">
+
+          <div class="project-visual">
+
+            <div class="project-number">
+              PROJECT / 02
+            </div>
+
+            <div class="project-word">
+              MONARCH
+            </div>
+
+          </div>
+
+          <div class="project-details">
+
+            <div class="project-eyebrow">
+              Fitness / Lifestyle
+            </div>
+
+            <h2>
+              Monarch
+            </h2>
+
+            <p>
+              A high-energy brand experience built around performance,
+              movement and confidence. Strong typography and bold
+              composition turn the website into an extension of the brand.
+            </p>
+
+            <div class="project-meta">
+              <span>Brand Experience</span>
+              <span>UI / UX</span>
+              <span>Development</span>
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- PROJECT 03 -->
+
+        <article class="featured-project">
+
+          <div class="project-visual">
+
+            <div class="project-number">
+              PROJECT / 03
+            </div>
+
+            <div class="project-word">
+              NOIR
+            </div>
+
+          </div>
+
+          <div class="project-details">
+
+            <div class="project-eyebrow">
+              Fashion / E-Commerce
+            </div>
+
+            <h2>
+              Noir
+            </h2>
+
+            <p>
+              A cinematic commerce experience designed around product,
+              atmosphere and conversion. Minimal layouts allow the
+              collection to remain the hero.
+            </p>
+
+            <div class="project-meta">
+              <span>E-Commerce</span>
+              <span>Creative Direction</span>
+              <span>Web Development</span>
+            </div>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================================
+         EXPERIENCE
+         ================================ -->
+
+    <section class="section experience-section">
+
+      <div class="section-label">
+        <span>03</span>
+        <span>WHAT WE BUILD</span>
+      </div>
+
+      <div class="experience-grid">
+
+        <div>
+          <h2 class="experience-title">
+            Designed for
+            <em>attention.</em>
+          </h2>
+        </div>
+
+        <div>
+
+          <p class="experience-copy">
+            From personal brands to ambitious businesses, VAYREN creates
+            digital experiences that combine visual identity, technology
+            and strategy into one coherent system.
+          </p>
+
+          <div class="experience-list">
+
+            <div class="experience-row">
+              <span>01 / Premium Websites</span>
+              <span>Web</span>
+            </div>
+
+            <div class="experience-row">
+              <span>02 / Brand Identity</span>
+              <span>Identity</span>
+            </div>
+
+            <div class="experience-row">
+              <span>03 / E-Commerce</span>
+              <span>Commerce</span>
+            </div>
+
+            <div class="experience-row">
+              <span>04 / Digital Strategy</span>
+              <span>Strategy</span>
+            </div>
+
+            <div class="experience-row">
+              <span>05 / Creative Development</span>
+              <span>Build</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================================
+         FEEDBACK
+         ================================ -->
+
+    <section class="section feedback-section">
+
+      <div class="section-label">
+        <span>04</span>
+        <span>FEEDBACK</span>
+      </div>
+
+      <div class="feedback-heading">
+
+        <h2>
+          Good work gets
+          <span>noticed.</span>
+        </h2>
+
+      </div>
+
+
+      <div class="feedback-grid">
+
+        <!-- FEEDBACK 01 -->
+
+        <article class="feedback-card">
+
+          <div>
+
+            <div class="feedback-mark">
+              “
+            </div>
+
+            <p>
+              The attention to detail completely changed how the brand
+              feels online. Every section feels intentional and premium.
+            </p>
+
+          </div>
+
+          <div class="feedback-person">
+
+            <div class="feedback-name">
+              Aarav Mehta
+            </div>
+
+            <div class="feedback-role">
+              Founder / Creative Brand
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- FEEDBACK 02 -->
+
+        <article class="feedback-card">
+
+          <div>
+
+            <div class="feedback-mark">
+              “
+            </div>
+
+            <p>
+              Clean, fast and visually different. The final website feels
+              much more expensive than what we originally imagined.
+            </p>
+
+          </div>
+
+          <div class="feedback-person">
+
+            <div class="feedback-name">
+              Riya Kapoor
+            </div>
+
+            <div class="feedback-role">
+              Brand Director / Lifestyle
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- FEEDBACK 03 -->
+
+        <article class="feedback-card">
+
+          <div>
+
+            <div class="feedback-mark">
+              “
+            </div>
+
+            <p>
+              The process was simple and the result was exceptional.
+              The website finally feels like the brand we wanted to build.
+            </p>
+
+          </div>
+
+          <div class="feedback-person">
+
+            <div class="feedback-name">
+              Kabir Shah
+            </div>
+
+            <div class="feedback-role">
+              Founder / Digital Venture
+            </div>
+
+          </div>
+
+        </article>
+
+      </div>
+
+      <div class="studio-note">
+        Sample portfolio feedback for presentation purposes.
+        Replace these with verified client testimonials when available.
+      </div>
+
+    </section>
+
+
+    <!-- ================================
+         RESULTS
+         ================================ -->
+
+    <section class="section results-section">
+
+      <div class="section-label">
+        <span>05</span>
+        <span>THE DIFFERENCE</span>
+      </div>
+
+      <h2 class="section-title">
+        Built around
+        <span>impact.</span>
+      </h2>
+
+
+      <div class="results-grid">
+
+        <article class="result-card">
+
+          <div class="result-card-number">
+            01
+          </div>
+
+          <h3>
+            Stronger First Impression
+          </h3>
+
+          <p>
+            Thoughtful visual systems make brands feel more credible,
+            distinctive and memorable from the first interaction.
+          </p>
+
+        </article>
+
+
+        <article class="result-card">
+
+          <div class="result-card-number">
+            02
+          </div>
+
+          <h3>
+            Better Digital Experience
+          </h3>
+
+          <p>
+            Clear hierarchy, responsive layouts and purposeful motion
+            keep the experience easy to understand and enjoyable to use.
+          </p>
+
+        </article>
+
+
+        <article class="result-card">
+
+          <div class="result-card-number">
+            03
+          </div>
+
+          <h3>
+            Designed to Convert
+          </h3>
+
+          <p>
+            Every interaction has a purpose — guiding visitors naturally
+            from curiosity toward action.
+          </p>
+
+        </article>
+
+
+        <article class="result-card">
+
+          <div class="result-card-number">
+            04
+          </div>
+
+          <h3>
+            Built to Last
+          </h3>
+
+          <p>
+            Instead of chasing temporary trends, VAYREN focuses on
+            timeless systems that can evolve with the brand.
+          </p>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================================
+         FINAL CTA
+         ================================ -->
+
+    <section class="section final-cta">
+
+      <div class="eyebrow">
+        HAVE A PROJECT IN MIND?
+      </div>
+
+      <h2>
+        Let's make something
+        <span>remarkable.</span>
+      </h2>
+
+      <a href="contact.html" class="button">
+        Start a conversation
+      </a>
+
+    </section>
+
+  </main>
+
+
+  <!-- ================================
+       FOOTER
+       ================================ -->
+
+  <footer class="footer">
+
+    <div class="footer-brand">
+
+      <div class="footer-logo">
+        VAYREN
+      </div>
+
+      <p>
+        Digital experiences, built to elevate.
+      </p>
+
+    </div>
+
+
+    <div class="footer-column">
+
+      <div class="footer-heading">
+        EXPLORE
+      </div>
+
+      <a href="index.html">Home</a>
+      <a href="work.html">Work</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+
+    </div>
+
+
+    <div class="footer-column">
+
+      <div class="footer-heading">
+        CONNECT
+      </div>
+
+      <a href="mailto:hello@vayren.info">
+        Email
+      </a>
+
+      <a href="#">
+        Instagram
+      </a>
+
+      <a href="#">
+        LinkedIn
+      </a>
+
+    </div>
+
+
+    <div class="footer-column">
+
+      <div class="footer-heading">
+        STUDIO
+      </div>
+
+      <span>India / Worldwide</span>
+      <span>Independent Digital Studio</span>
+      <span>Available for select projects</span>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      <span>
+        © 2026 VAYREN
+      </span>
+
+      <span>
+        FOUNDED BY HARSHIL GARG
+      </span>
+
+      <span>
+        VAYREN.INFO
+      </span>
+
+    </div>
+
+  </footer>
+
+</body>
+</html>
